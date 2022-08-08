@@ -16,7 +16,7 @@
 
 //plugin description
 static char *purpose = "Checks if file contains single-precision floating-point number in binary form";
-static char *author = "Magaskin Kirill Anatolevich N3247";
+static char *author = "K1RPI7CH, N3247";
 
 #define OPT_FLOAT_IN_BINARY "float-bin"
 
