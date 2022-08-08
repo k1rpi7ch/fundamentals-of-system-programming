@@ -10,26 +10,26 @@
 #define PLUGIN_API_VERSION  1
 
 /*
-    Структура, описывающая опцию, поддерживаемую плагином.
+    A structure describing the option supported by the plugin.
 */
 struct plugin_option {
-    /* Опция в формате, поддерживаемом getopt_long (man 3 getopt_long). */
+    /* Option in the format supported by getopt_long (man 3 getopt_long). */
     struct option opt;
-    /* Описание опции, которое предоставляет плагин. */
+    /* Description of the option provided by the plugin. */
     const char *opt_descr;
 };
 
 /*
-    Структура, содержащая информацию о плагине.
+    Structure containing information about the plugin.
 */
 struct plugin_info {
-    /* Назначение плагина */
+    /* Plugin purpose */
     const char *plugin_purpose;
-    /* Автор плагина, например "Иванов Иван Иванович, N32xx" */
+    /* Plugin author, i.e. "John Doe" */
     const char *plugin_author;
-    /* Длина списка опций */
+    /* Length of options list */
     size_t sup_opts_len;
-    /* Список опций, поддерживаемых плагином */
+    /* List of options, supported by plugin */
     struct plugin_option *sup_opts;
 };
 
@@ -38,14 +38,14 @@ int plugin_get_info(struct plugin_info* ppi);
 /*
     plugin_get_info()
     
-    Функция, позволяющая получить информацию о плагине.
-    
-    Аргументы:
-        ppi - адрес структуры, которую заполняет информацией плагин.
-        
-    Возвращаемое значение:
-          0 - в случае успеха,
-        < 0 - в случае неудачи (в этом случае продолжать работу с этим плагином нельзя).
+    A function that allows you to get information about the plugin.
+
+    Arguments:
+    ppi is the address of the structure that the plugin fills in with information.
+
+    Return value:
+    0 - if successful,
+    < 0 - in case of failure (in this case it is impossible to continue working with this plugin).
 */
 
 
@@ -56,32 +56,32 @@ int plugin_process_file(const char *fname,
 /*
     plugin_process_file()
     
-    Фунция, позволяющая выяснить, отвечает ли файл заданным критериям.
+    A function that allows you to find out whether the file meets the specified criteria.
     
-    Аргументы:
-        fname - путь к файлу (полный или относительный), который проверяется на
-            соответствие критериям, заданным с помощью массива in_opts.
+    Arguments:
+        fname is the path to the file (full or relative), which is checked for
+    compliance with the criteria set using the in_opts array.
 
-        in_opts - список опций (критериев поиска), которые передаются плагину.
+        in_opts - a list of options (search criteria) that are passed to the plugin.
             struct option {
                const char *name;
                int         has_arg;
                int        *flag;
                int         val;
             };
-            Поле name используется для передачи имени опции, поле flag - для передачи
-            значения опции (в виде строки). Если у опции есть аргумент, поле has_arg
-            устанавливается в ненулевое значение. Поле val не используется.
+            The name field is used to transmit the name of the option, the flag field is used to transmit
+            option values (as a string). If the option has an argument, the has_arg field
+            set to a non-zero value. The val field is not used.
            
-        in_opts_len - длина списка опций.
+        in_opts_len - the length of the options list.
                     
-    Возвращаемое значение:
-          0 - файл отвечает заданным критериям,
-        > 0 - файл НЕ отвечает заданным критериям,
-        < 0 - в процессе работы возникла ошибка
+    Return value:
+          0 - the file meets the specified criteria,
+        > 0 - the file does NOT meet the specified criteria,
+        < 0 - an error occurred during operation
         
-    В случае, если произошла ошибка, переменная errno должна устанавливаться 
-    в соответствующее значение.
+    In case an error has occurred, the errno variable should be set 
+    to the appropriate value.
 */
         
 #endif
