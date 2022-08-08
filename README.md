@@ -22,7 +22,7 @@ When running without a directory name to search for, the program displays refere
 - `-v` –  Outputs the program version and information about the program.
 - `-h` –  Outputs help option.
 
-Plugins are dynamic libraries in ELF format with an arbitrary name and extension .so and the plugin_get_info and plugin_process_file interface functions. Checking whether the file meets the specified criteria. A detailed description of the plugins API is contained in the `kamN3247.h` file.
+Plugins are dynamic libraries in ELF format with an arbitrary name and extension .so and the plugin_get_info and plugin_process_file interface functions. Checking whether the file meets the specified criteria. A detailed description of the plugins API is contained in the [`kamN3247.h`](https://github.com/k1rpi7ch/fundamentals-of-system-programming/blob/main/kamN3247.h) file.
 
 When a file is found that meets the specified search criteria, the full path to this file is output to the standard output stream. When defining the `LAB1DEBUG` environment variable, information about what was found and where in the file should be output to the standard error stream (to make it easier to understand why the file meets the search criteria), and any additional debugging information can also be output.
 
