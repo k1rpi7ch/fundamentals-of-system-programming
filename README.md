@@ -1,5 +1,6 @@
 # fundamentals-of-system-programming
-This is my practical work on subject: File I/O and dynamic libraries. ITMO University forth semester of study on SIT program.
+This is my practical work on subject: File I/O and dynamic libraries. 
+ITMO University forth semester of study on SIT program.
 ---
 # Technical Specification
 Develop on C language for OS Linux:
